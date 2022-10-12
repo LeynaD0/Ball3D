@@ -36,6 +36,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     GameObject musicBackground;
 
+    [SerializeField]
+    GameObject winScreen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +66,12 @@ public class PlayerController : MonoBehaviour
         if(diamonds == 9)
         {
             doors.SetActive(false);
+        }
+
+        if(diamonds >= 10)
+        {
+            winScreen.SetActive(true);
+            this.enabled = false;
         }
 
     }
