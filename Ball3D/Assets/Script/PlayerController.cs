@@ -28,9 +28,6 @@ public class PlayerController : MonoBehaviour
     GameObject lostScreen;
 
     [SerializeField]
-    GameObject doors;
-
-    [SerializeField]
     GameObject prefabParticles;
 
     [SerializeField]
@@ -38,6 +35,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     GameObject winScreen;
+
+    [SerializeField]
+    TextMeshProUGUI tiempoFinal;
 
     // Start is called before the first frame update
     void Start()
@@ -63,14 +63,11 @@ public class PlayerController : MonoBehaviour
             musicBackground.SetActive(false);
         }
 
-        if(diamonds == 9)
-        {
-            doors.SetActive(false);
-        }
-
         if(diamonds >= 10)
         {
             winScreen.SetActive(true);
+            tiempoFinal.text = "tiempo: " + timer.ToString();
+            musicBackground.SetActive(false);
             this.enabled = false;
         }
 
